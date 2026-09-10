@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "source_version": 4,
+  "context": {
+    "repository": "ultrabricks/research-cli",
+    "repository_id": 1281255310,
+    "source_ref": "f707ee2b2f643a4621121187df442554aa968244",
+    "snapshot_run": "34541300125",
+    "mutations": "body only",
+    "manual_exclusions": []
+  },
+  "mode": "apply",
+  "started_at": "2026-09-10T23:39:36.479568+00:00",
+  "events": [
+    {
+      "key": "research-cli#19",
+      "number": 19,
+      "result": "patch-received-awaiting-readback",
+      "observed_before_sha256": "0e4ac1f015b8c8656130893fb8eea3ac94171744e4cc951085e8fa581341c743"
+    },
+    {
+      "key": "research-cli#4",
+      "number": 4,
+      "result": "patch-received-awaiting-readback",
+      "observed_before_sha256": "9e3406f58b79018bfdb60c984dc0a59eba1cd0755bbec90d61b219bd4073b854"
+    },
+    {
+      "key": "research-cli#3",
+      "number": 3,
+      "result": "patch-received-awaiting-readback",
+      "observed_before_sha256": "9024743ca41a8975d2b26179bd5c32e14d9bedce329c7a64fa748f688cf182e4"
+    },
+    {
+      "key": "research-cli#18",
+      "number": 18,
+      "result": "patch-received-awaiting-readback",
+      "observed_before_sha256": "731e5a3c9b97b17c20b7a573cab88ca91de227ab1f0435c3c04b497df8bbaef4"
+    },
+    {
+      "key": "research-cli#16",
+      "number": 16,
+      "result": "patch-received-awaiting-readback",
+      "observed_before_sha256": "846e91b3000592e3c2c9765986d59fc82454308d3bf3ff9b8e9e567dce7f8838"
+    },
+    {
+      "key": "research-cli#2",
+      "number": 2,
+      "result": "patch-received-awaiting-readback",
+      "observed_before_sha256": "53112313951a4ff25bda475f2005e59e5dc3a7a23a2592162934bae77b1669b1"
+    },
+    {
+      "key": "research-cli#14",
+      "number": 14,
+      "result": "patch-received-awaiting-readback",
+      "observed_before_sha256": "a2dea8713fd8742b9629e2e8aaf4fe6365bec116630a5016522f2daffa07ed11"
+    },
+    {
+      "key": "research-cli#11",
+      "number": 11,
+      "result": "patch-received-awaiting-readback",
+      "observed_before_sha256": "be9ca9f610185f0adb86f0aad67e6689b206c9f4d82d7457cffb1f35f7d3f78d"
+    },
+    {
+      "key": "research-cli#9",
+      "number": 9,
+      "result": "patch-received-awaiting-readback",
+      "observed_before_sha256": "b21bad8b81897f52030d6a613290e374f7f860492093d75420d706f92bb2a5e4"
+    },
+    {
+      "key": "research-cli#6",
+      "number": 6,
+      "result": "patch-received-awaiting-readback",
+      "observed_before_sha256": "f1d583fd18a7b616b9b2926137bd5202e7dc7165ba905513f02ae937c81de70e"
+    },
+    {
+      "key": "research-cli#1",
+      "number": 1,
+      "result": "delivery-uncertain",
+      "observed_before_sha256": "92761554c1216bc88655e82c98c5c1d92adac949b7b280c6f709d9cb012ae6a4"
+    }
+  ],
+  "writes": 10,
+  "complete": false,
+  "fatal": "delivery-uncertain",
+  "product_acceptance": false,
+  "counts": {
+    "patch-received-awaiting-readback": 10,
+    "delivery-uncertain": 1
+  },
+  "pending_write": {
+    "key": "research-cli#1",
+    "intended_sha256": "e1a59d3c4a05262dfb78885700f25fd2a9cb8af3e3c8905b0b42167898ca085e"
+  },
+  "readback_error": "HTTPError",
+  "planned": 12,
+  "remaining_or_conflicted": 12,
+  "finished_at": "2026-09-10T23:41:04.211752+00:00"
+}
