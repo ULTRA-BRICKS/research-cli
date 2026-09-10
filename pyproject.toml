@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "research-cli"
-version = "0.1.1"
+version = "0.1.2"
 description = "Multi-provider research/panel CLI built on the shared agent-tools providers engine (board, failover, key cascade, capability tags). A distinct tool from review-cli — research, not code review."
 readme = "README.md"
 # Match the ecosystem floor: agenttools-providers targets >=3.9.

@@ -299,6 +299,24 @@ def test_subprocess_transport_canonicalizes_alias_key_for_backend(monkeypatch):
     assert "sk-via-alias for" in out and "opus" in out  # canonical var carries the alias value
 
 
+def test_subprocess_transport_alias_beats_stale_os_environ_canonical(monkeypatch):
+    # Review finding (Medium): _subprocess_env must not let a stale canonical in os.environ
+    # block re-canonicalization of a fresh alias in self.env.  is_reachable resolves against
+    # self.env only and says True for the alias; _subprocess_env must match that decision and
+    # publish the alias value under the canonical name even when os.environ already has a key.
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "stale-key-from-os-environ")
+    monkeypatch.delenv("CLAUDE_API_KEY", raising=False)
+    t = SubprocessTransport(
+        env={"CLAUDE_API_KEY": "fresh-via-alias"},  # self.env: only the alias, no canonical
+        command_template='printf "%s for {model}" "${ANTHROPIC_API_KEY}"',
+    )
+    entry = ModelEntry("opus", "anthropic", frozenset({"reasoning"}))
+    assert t.is_reachable(entry) is True  # alias resolves in self.env
+    out = t.ask(entry, question="q", lens="analyst", timeout=10.0)
+    # must get the FRESH alias value, not the stale os.environ canonical
+    assert "fresh-via-alias for" in out and "stale-key-from-os-environ" not in out
+
+
 def test_subprocess_transport_child_inherits_process_env(tmp_path, monkeypatch):
     # Regression guard (review finding): passing an explicit env= to subprocess.run must NOT
     # strip the inherited process environment. A backend that is a PATH lookup (a real CLI,

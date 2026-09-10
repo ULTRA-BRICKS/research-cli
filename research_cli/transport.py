@@ -164,15 +164,21 @@ class SubprocessTransport:
            populated, we resolve the key the same way ``is_reachable`` did (any alias, or the
            ``.env`` fallback) and publish it under the canonical name. If the canonical name IS
            already set we leave it untouched — env wins over ``.env`` and over re-canonicalizing.
-           Resolving against ``self.env`` (not live ``os.environ``) keeps this consistent with
-           ``is_reachable``'s own reachability decision.
+           "already set" is checked against ``self.env`` alone (not the merged child), so a
+           stale canonical key in ``os.environ`` does not mask a fresh alias or ``.env`` value —
+           consistent with ``is_reachable``, which resolves against ``self.env`` only.
         """
         child = {**os.environ, **self.env}
         cascade = self._cascade_for(provider)
         if cascade is None or not cascade.names:
             return child
         canonical = cascade.names[0]
-        if not (child.get(canonical, "") or "").strip():
+        # Check ONLY self.env (not the merged child that includes os.environ) — if the
+        # caller didn't set the canonical name explicitly, resolve via the cascade and
+        # publish the result, even if os.environ carries a stale canonical value.  This
+        # keeps _subprocess_env consistent with is_reachable, which resolves against
+        # self.env (not os.environ).
+        if not (self.env.get(canonical, "") or "").strip():
             resolved = cascade.resolve(env=self.env)
             if resolved:
                 child[canonical] = resolved
