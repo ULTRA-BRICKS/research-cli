@@ -33,12 +33,10 @@ SKILL_MD = """\
 ---
 name: research
 description: >-
-  Multi-provider research / panel CLI. Put a question to a PANEL of different models (each
-  through a research lens — analyst / skeptic / scout), then synthesize their answers into one
-  attributed note. A DISTINCT tool from review-cli (research, not code review): reuses the same
-  multi-model plumbing (board, failover, key cascade, capability tags) but adds research lenses
-  + a panel pass. Commands: `research ask "<question>"`, `research ask --offline` (no key, stub
-  transport), `research ask --json` (machine-readable), `research board` (show the resolved panel).
+  Multi-provider research/panel CLI. Put a question to a PANEL of models (each through
+  a lens — analyst/skeptic/scout), then synthesize one attributed note. Distinct from
+  review-cli (research, not code review). Commands: `research ask "<question>"`,
+  `--offline`, `--json`, `research board`.
 metadata:
   author: alex-mextner
   repo: https://github.com/alex-mextner/research-cli
