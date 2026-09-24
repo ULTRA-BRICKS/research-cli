@@ -39,7 +39,7 @@ description: >-
   `--offline`, `--json`, `research board`.
 metadata:
   author: alex-mextner
-  repo: https://github.com/alex-mextner/research-cli
+  repo: https://git.hyperide.ai/ultrabricks/research-cli
 ---
 
 # research — multi-provider research / panel

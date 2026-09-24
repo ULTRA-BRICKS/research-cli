@@ -31,8 +31,8 @@ test = ["pytest", "pyyaml"]
 research = "research_cli.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/alex-mextner/research-cli"
-Tracking = "https://github.com/alex-mextner/research-cli/issues/1"
+Homepage = "https://git.hyperide.ai/ultrabricks/research-cli"
+Tracking = "https://git.hyperide.ai/ultrabricks/research-cli/issues/1"
 
 # Discover the tool package AND the vendored libraries (so an editable/pip install makes
 # agenttools_providers / agenttools_errors importable too, alongside the checkout-time
