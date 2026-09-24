@@ -22,10 +22,10 @@ Pick one — each ends with `research` on your PATH:
 
 ```bash
 # 1. uv — recommended; macOS, Linux and Windows (incl. Cygwin / Git Bash)
-uv tool install 'research-cli[yaml] @ git+https://git.hyperide.ai/ultrabricks/research-cli'
+uv tool install 'hyper-research[yaml]'
 
 # 2. pipx
-pipx install 'research-cli[yaml] @ git+https://git.hyperide.ai/ultrabricks/research-cli'
+pipx install 'hyper-research[yaml]'
 
 # 3. one-liner — clones to ~/.local/share/research-cli, links research into ~/.local/bin, registers the agent skill
 curl -fsSL https://git.hyperide.ai/ultrabricks/research-cli/raw/branch/main/install.sh | bash
@@ -35,15 +35,13 @@ git clone https://git.hyperide.ai/ultrabricks/research-cli && cd research-cli &&
 ```
 
 - After **1** or **2**, run `research install-skill` once so coding agents discover `research` (3 and 4 do it for you).
-- **Update:** `uv tool upgrade research-cli` · `pipx upgrade research-cli` · re-run the one-liner · `git pull`.
+- **Unreleased `main`:** `uv tool install 'hyper-research[yaml] @ git+https://git.hyperide.ai/ultrabricks/research-cli'` (or the same with `pipx install`).
+- **Update:** `uv tool upgrade hyper-research` · `pipx upgrade hyper-research` · re-run the one-liner · `git pull`.
 - **Via rig:** clone into `~/xp/research-cli` and list `research` under `tools.items` in `~/.config/rig/config.yaml` — `rig apply commit` runs its `install.sh` and keeps the clone fresh.
 - **Windows:** use uv (option 1) — `./install.sh` and the one-liner do exactly that under Cygwin / Git Bash. If a command dies with `UnicodeEncodeError` in mintty, run `setx PYTHONUTF8 1` once. More: [rig-cli → Windows](https://git.hyperide.ai/ultrabricks/rig-cli#windows-cygwin-git-bash-powershell).
 
-> **Not on PyPI — always install from the git URL.** A bare `pipx install research-cli` /
-> `uv tool install research-cli` does not install this tool: the name is unclaimed on PyPI or (for
-> `rig-cli`, `dev-cli`, `harness-cli`) belongs to an unrelated project. The canonical repo is
-> **git.hyperide.ai/ultrabricks/research-cli**; `github.com/alex-mextner/research-cli` is a frozen,
-> archived mirror.
+> **On PyPI as `hyper-research`** (the command is still `research`). The canonical repo is
+> **git.hyperide.ai/ultrabricks/research-cli**; `github.com/alex-mextner/research-cli` is a frozen, archived mirror.
 
 Or run straight from the checkout (no install step — the entry point and the package shims
 put the package + the vendored libs on `sys.path`):
