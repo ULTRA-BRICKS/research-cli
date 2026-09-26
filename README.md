@@ -37,6 +37,7 @@ git clone https://git.hyperide.ai/ultrabricks/research-cli && cd research-cli &&
 - After **1** or **2**, run `research install-skill` once so coding agents discover `research` (3 and 4 do it for you).
 - **Unreleased `main`:** `uv tool install 'hyper-research[yaml] @ git+https://git.hyperide.ai/ultrabricks/research-cli'` (or the same with `pipx install`).
 - **Update:** `uv tool upgrade hyper-research` · `pipx upgrade hyper-research` · re-run the one-liner · `git pull`.
+- **Installed before the rename** (as `research-cli`, from git)? Remove that first — `uv tool uninstall research-cli` or `pipx uninstall research-cli` — or two installs both claim `research`.
 - **Via rig:** clone into `~/xp/research-cli` and list `research` under `tools.items` in `~/.config/rig/config.yaml` — `rig apply commit` runs its `install.sh` and keeps the clone fresh.
 - **Windows:** use uv (option 1) — `./install.sh` and the one-liner do exactly that under Cygwin / Git Bash. If a command dies with `UnicodeEncodeError` in mintty, run `setx PYTHONUTF8 1` once. More: [rig-cli → Windows](https://git.hyperide.ai/ultrabricks/rig-cli#windows-cygwin-git-bash-powershell).
 
