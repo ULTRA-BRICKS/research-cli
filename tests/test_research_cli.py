@@ -567,10 +567,11 @@ def test_cli_discovers_self_registering_commands():
 
 
 def test_cli_version_and_help(capsys):
+    from research_cli import __version__
     from research_cli.cli import main
 
     assert main(["--version"]) == 0
-    assert "research 0.1.0" in capsys.readouterr().out
+    assert f"research {__version__}" in capsys.readouterr().out
 
     assert main(["--help"]) == 0
     assert "Commands:" in capsys.readouterr().out
